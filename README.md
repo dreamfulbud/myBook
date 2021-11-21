@@ -2,7 +2,7 @@
 
 - https://dreamfulbud.github.io/myBook/
 
-<img scr="https://dreamfulbud.github.io/myBook/img/main.png" alt="myBook 메인" />
+<img src="./img/main.png" alt="myBook 메인" />
 
 - 내가 읽은 도서 목록
 - 개인프로젝트

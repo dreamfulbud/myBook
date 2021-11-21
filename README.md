@@ -1,6 +1,9 @@
 # myBook
 
 - https://dreamfulbud.github.io/myBook/
+
+<img scr="https://dreamfulbud.github.io/myBook/img/main.png" alt="myBook 메인" />
+
 - 내가 읽은 도서 목록
 - 개인프로젝트
 - HTML/CSS/SASS/jQuery/카카오 도서 API 사용
@@ -20,9 +23,9 @@
 
 2. flex
 
-- 도서 목록(main ul li)을 flex / justify-content:space-between; 속성을 이용해 짜려고 했으나,
-  마지막 행이 도서 개수에 따라 의도한 형태로 정렬이 되지 않았다.
-- 반응형등을 고려하면 Grid를 이용하는것이 더 좋을 것 같다.
+   - 도서 목록(main ul li)을 flex / justify-content:space-between; 속성을 이용해 짜려고 했으나,
+     마지막 행이 도서 개수에 따라 의도한 형태로 정렬이 되지 않았다.
+   - 반응형등을 고려하면 Grid를 이용하는것이 더 좋을 것 같아 grid로 변경!
 
 3. Grid
 

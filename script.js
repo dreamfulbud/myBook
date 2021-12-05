@@ -1,6 +1,6 @@
 const booklist = {
   year21: [
-    '생각이 너무 많은 서른살에게', '슈퍼팬 - 비즈니스를 성장시키는 이 시대의 가장 큰손', '프리워커스', '일 잘하는 사람은 단순하게 말합니다', '분노수업',
+    '뉴타입의 시대', '생각이 너무 많은 서른살에게', '슈퍼팬 - 비즈니스를 성장시키는 이 시대의 가장 큰손', '프리워커스', '일 잘하는 사람은 단순하게 말합니다', '분노수업',
     '트렌드 코리아 2021', 'UX / UI의 10가지 심리학 법칙', '달러구트 꿈 백화점.', '어웨이크',
     'EXIT', '서른다섯, 출근하기 싫어졌습니다.', '니클의 소년들', '나는 7년동안 세계 최고를 만났다', '일인칭 단수',
     '사용자를 유혹하는 UX의 기술', '일은 배신하지 않는다', '달까지 가자', '공공연한 고양이', '독서모임 꾸리는 법',
@@ -24,93 +24,79 @@ const booklist = {
     '회사 다니면서 글쓰기 잘 사용하는 법을 알려드립니다', '산타가 쉬는집'
   ]
 }
+let btns = document.querySelectorAll("#tab li button");
+let btn21 = document.querySelector("#year21");
+let btn20 = document.querySelector("#year20");
+let btn19 = document.querySelector("#year19");
 
-$('#year21 button span').html(booklist.year21.length);
-$('#year20 button span').html(booklist.year20.length);
-$('#year19 button span').html(booklist.year19.length);
 
-for (let i = 0; i < booklist.year21.length; i++) {
-  $.ajax({
-    method: "GET", //전송방식
-    url: "https://dapi.kakao.com/v3/search/book?target=title", //전송주소 : 데이터를 전달할 URL
-    data: { query: booklist.year21[i] }, //보낼 데이터
-    headers: { Authorization: "KakaoAK bd8620685805804f2d018956bc5dc276" }
-  })
-    .done(function (msg) {
-      $("#book").append(`
-        <li>
-          <article>
-            <a class="thumb" href="${msg.documents[0].url}" target="_blank" title="새창">
-              <img src="${msg.documents[0].thumbnail}" alt="${msg.documents[0].title}" />
-            </a>
-            <h4 class="title">${msg.documents[0].title}</h4>
-            <dl>
-              <div>
-                <dt>저자</dt>
-                <dd class="authors">${msg.documents[0].authors}</dd>
-              </div>
-              <div>
-                <dt>출판사</dt>
-                <dd class="publisher">${msg.documents[0].publisher}</dd>
-              </div>
-              <div class="con">
-                <dt class="a11y-hidden">소개</dt>
-                <dd class="contents">${msg.documents[0].contents}</dd>
-              </div>
-            </dl>
-            <a class="btn" href="${msg.documents[0].url}" target="_blank" title="새창">도서 정보</a>
-          </article>
-        </li>        
-        `);
+btns.forEach((ele) => {
+  let eleId = ele.getAttribute('id');
+  ele.querySelector("span").innerHTML = booklist[`${eleId}`].length;
+});
 
-    });
+
+// function handleTab() {
+//   // let btnId = this.getAttribute('id');
+//   if (this.classList.contains('on') === false) {
+//     btns.forEach((ele) => {
+
+//     });
+//     this.classList.add('on');
+//   }
+// }
+
+btn21.addEventListener("click", handleTab);
+btn20.addEventListener("click", handleTab);
+btn20.addEventListener("click", handleTab);
+
+
+function handleBooklist(year) {
+  let thisYear = year.getAttribute('id');
+  for (let i = 0; i < booklist[`${thisYear}`].length; i++) {
+    $.ajax({
+      method: "GET", //전송방식
+      url: "https://dapi.kakao.com/v3/search/book?target=title", //전송주소 : 데이터를 전달할 URL
+      data: { query: booklist[`${thisYear}`][i] }, //보낼 데이터
+      headers: { Authorization: "KakaoAK bd8620685805804f2d018956bc5dc276" }
+    })
+      .done(function (msg) {
+        $("#book").append(`
+      <li>
+        <article>
+          <a class="thumb" href="${msg.documents[0].url}" target="_blank" title="새창">
+            <img src="${msg.documents[0].thumbnail}" alt="" />
+          </a>
+          <h4 class="title">${msg.documents[0].title}</h4>
+          <dl>
+            <div>
+              <dt>저자</dt>
+              <dd class="authors">${msg.documents[0].authors}</dd>
+            </div>
+            <div>
+              <dt>출판사</dt>
+              <dd class="publisher">${msg.documents[0].publisher}</dd>
+            </div>
+            <div class="con">
+              <dt class="a11y-hidden">소개</dt>
+              <dd class="contents">${msg.documents[0].contents}</dd>
+            </div>
+          </dl>
+          <a class="btn" href="${msg.documents[0].url}">도서 정보</a>
+        </article>
+      </li>        
+      `);
+
+      });
+  }
 }
 
-$('#tab li button').click(function () {
-  if ($(this).parent("li").hasClass("on") === false) {
-    let year = $(this).parent("li").index();
-    $('#tab li').removeClass("on");
-    $(this).parent("li").addClass("on");
-    $("#book *").remove();
+handleBooklist(year21);
 
-    let array = booklist[Object.keys(booklist)[year]];
-
-    for (let i = 0; i < array.length; i++) {
-      $.ajax({
-        method: "GET", //전송방식
-        url: "https://dapi.kakao.com/v3/search/book?target=title", //전송주소 : 데이터를 전달할 URL
-        data: { query: array[i] }, //보낼 데이터
-        headers: { Authorization: "KakaoAK bd8620685805804f2d018956bc5dc276" }
-      })
-        .done(function (msg) {
-          $("#book").append(`
-        <li>
-          <article>
-            <a class="thumb" href="${msg.documents[0].url}" target="_blank" title="새창">
-              <img src="${msg.documents[0].thumbnail}" alt="" />
-            </a>
-            <h4 class="title">${msg.documents[0].title}</h4>
-            <dl>
-              <div>
-                <dt>저자</dt>
-                <dd class="authors">${msg.documents[0].authors}</dd>
-              </div>
-              <div>
-                <dt>출판사</dt>
-                <dd class="publisher">${msg.documents[0].publisher}</dd>
-              </div>
-              <div class="con">
-                <dt class="a11y-hidden">소개</dt>
-                <dd class="contents">${msg.documents[0].contents}</dd>
-              </div>
-            </dl>
-            <a class="btn" href="${msg.documents[0].url}">도서 정보</a>
-          </article>
-        </li>        
-        `);
-
-        });
-    }
-
-  }
-});
+// $('#tab li button').click(function () {
+//   if ($(this).parent("li").hasClass("on") === false) {
+//     $('#tab li').removeClass("on");
+//     $(this).parent("li").addClass("on");
+//     $("#book *").remove();
+//   }
+// });

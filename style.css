@@ -12,13 +12,50 @@
   -webkit-font-feature-settings: "kern" 1;
 }
 
-html, body, div, span, a, img, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, blockquote, p, address, pre, cite, iframe, form, fieldset, input, textarea, select, label, table, caption, th, tr, td, button {
+html,
+body,
+div,
+span,
+a,
+img,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+address,
+pre,
+cite,
+iframe,
+form,
+fieldset,
+input,
+textarea,
+select,
+label,
+table,
+caption,
+th,
+tr,
+td,
+button {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
   list-style: none;
 }
 
@@ -38,7 +75,13 @@ img {
   max-width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   text-align: inherit;
   font-weight: 400;
 }
@@ -47,13 +90,16 @@ strong {
   font-weight: 700;
 }
 
-button, input[type="submit"], input[type="button"] {
+button,
+input[type="submit"],
+input[type="button"] {
   cursor: pointer;
   background: none;
   border: none;
 }
 
-select, button {
+select,
+button {
   vertical-align: middle;
   appearance: none;
   -webkit-appearance: none;
@@ -65,7 +111,9 @@ a {
   color: inherit;
 }
 
-table, th, td {
+table,
+th,
+td {
   border-collapse: collapse;
 }
 
@@ -120,7 +168,11 @@ input {
   padding: 0 0 0 2rem;
 }
 
-.logo .mlogo, .logo #d1, .logo #d2, .logo #d3, .logo #m1 {
+.logo .mlogo,
+.logo #d1,
+.logo #d2,
+.logo #d3,
+.logo #m1 {
   stroke-dasharray: 3000;
   stroke-dashoffset: 3000;
   stroke-width: 18;
@@ -212,13 +264,13 @@ header nav ul li button:hover {
   background: rgba(255, 255, 255, 0.7);
 }
 
-header nav ul li.on button {
+header nav ul li button.on {
   color: #000;
   font-weight: bold;
   background: #FDD65F;
 }
 
-header nav ul li.on button span {
+header nav ul li button.on span {
   background: white;
 }
 
@@ -269,7 +321,7 @@ main ul li .thumb {
   box-sizing: border-box;
   height: 0;
   overflow: hidden;
-  padding-top: calc( 1.2 * 100%);
+  padding-top: calc(1.2 * 100%);
   position: relative;
 }
 

@@ -136,6 +136,12 @@ html {
   font-size: 10px;
 }
 
+@media (max-width: 640px) {
+  html {
+    font-size: 8px;
+  }
+}
+
 body {
   font-size: 1.6rem;
   font-family: 'Noto Sans KR', sans-serif;
@@ -154,15 +160,15 @@ input {
 }
 
 .logo {
-  width: 100px;
-  height: 70px;
+  width: 10rem;
+  height: 7rem;
   margin: 0 auto;
   text-align: center;
   /*main_logo*/
 }
 
 .logo svg {
-  width: 70px;
+  width: 7rem;
   display: block;
   margin: 0 auto;
   padding: 0 0 0 2rem;
@@ -198,7 +204,7 @@ input {
 .logo .p01 {
   font-family: "BigJohn", "Noto Sans KR", sans-serif;
   font-size: 2rem;
-  margin: -2.5rem 0 5px 0;
+  margin: -2.5rem 0 0.5rem 0;
 }
 
 .logo .p02 {
@@ -210,23 +216,23 @@ input {
 .wrap {
   background: #F5F5F5;
   border: 1px solid #eee;
-  border-radius: 15px;
-  margin: 40px auto;
-  width: 1060px;
-  max-width: calc(100% - 60px);
-  padding: 30px;
+  border-radius: 1.5rem;
+  margin: 4rem auto;
+  width: 106rem;
+  max-width: calc(100% - 6rem);
+  padding: 3rem;
   box-sizing: border-box;
 }
 
 header h2 {
   text-align: center;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: #000;
-  width: 650px;
+  width: 65rem;
   margin: 0 auto;
   max-width: 100%;
-  padding: 10px 0 37px 0;
+  padding: 1rem 0 3.7rem 0;
   border-bottom: 1px solid #ddd;
 }
 
@@ -236,24 +242,28 @@ header nav ul {
 }
 
 header nav ul li {
-  padding: 18px 0;
-  margin: 0 2px;
+  padding: 1.8rem 0;
+  margin: 0 0.2rem;
 }
 
 header nav ul li button {
-  padding: 10px 30px;
-  font-size: 16px;
+  padding: 1rem 3rem;
+  font-size: 1.6rem;
   color: #999;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   transition: color 0.3s, background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
 }
 
 header nav ul li button span {
   display: inline-block;
-  border-radius: 16px;
+  border-radius: 1.6rem;
   background: #e5e5e5;
-  padding: 4px 12px;
-  margin-left: 8px;
+  padding: 0.4rem 1.2rem;
   font-size: 0.8em;
   vertical-align: 1px;
   transition: background-color 0.3s;
@@ -279,8 +289,8 @@ main ul {
   grid-template-columns: repeat(4, calc((100% - 2rem*3)/4));
   grid-gap: 2rem;
   box-sizing: border-box;
-  border-radius: 15px;
-  padding: 30px;
+  border-radius: 1.5rem;
+  padding: 3rem;
   background-color: #fff;
 }
 
@@ -290,34 +300,27 @@ main ul {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 640px) {
   main ul {
     grid-template-columns: repeat(2, calc((100% - 2rem)/2));
-  }
-}
-
-@media (max-width: 460px) {
-  main ul {
-    grid-template-columns: repeat(1, 100%);
   }
 }
 
 main ul li {
   border: 1px solid #ddd;
   background-color: #fff;
-  margin-bottom: 24px;
   box-sizing: border-box;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  box-shadow: 0px 0px 1rem 0px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
   transition: transform 0.3s;
 }
 
 main ul li .thumb {
   border: 1px solid #eee;
   display: block;
-  border-radius: 10px;
-  margin: 20px 20px 0 20px;
-  width: calc(100% - 40px);
+  border-radius: 1rem;
+  margin: 2rem 2rem 0 2rem;
+  width: calc(100% - 4rem);
   box-sizing: border-box;
   height: 0;
   overflow: hidden;
@@ -337,41 +340,41 @@ main ul li h4 {
   font-weight: bold;
   letter-spacing: -0.2px;
   display: block;
-  padding: 11px 20px 12px 20px;
+  padding: 1.1rem 2rem 1.2rem 2rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 main ul li dl {
-  margin: 0 20px;
+  margin: 0 2rem;
 }
 
 main ul li dl div {
-  margin-bottom: 4px;
+  margin-bottom: 0.4rem;
 }
 
 main ul li dl div dt {
   color: #828282;
-  font-size: 13px;
-  width: 50px;
+  font-size: 1.3rem;
+  width: 5rem;
   float: left;
 }
 
 main ul li dl div dd {
   color: #000;
-  font-size: 13px;
+  font-size: 1.3rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 main ul li dl div dd:not(.contents) {
-  width: calc(100% - 50px);
+  width: calc(100% - 5rem);
   white-space: nowrap;
 }
 
 main ul li dl div .contents {
-  margin-top: 4px;
+  margin-top: 0.4rem;
   width: 100%;
   height: 3.2em;
   line-height: 1.6;
@@ -385,17 +388,19 @@ main .btn {
   border-top: 1px solid #ddd;
   background: #F2F2F2;
   display: flex;
-  height: 40px;
+  height: 4rem;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  margin-top: 18px;
-  border-radius: 0 0 10px 10px;
+  font-size: 1.4rem;
+  margin-top: 1.8rem;
+  border-radius: 0 0 1rem 1rem;
   transition: background-color 0.3s;
 }
 
-main ul li:hover {
-  transform: scale(1.08);
+@media (min-width: 480px) {
+  main ul li:hover {
+    transform: scale(1.08);
+  }
 }
 
 main ul li:hover .btn {
@@ -404,7 +409,7 @@ main ul li:hover .btn {
 
 footer {
   background: #F2F2F2;
-  padding: 30px;
+  padding: 3rem;
   text-align: center;
 }
 
@@ -413,19 +418,19 @@ footer p + p {
   color: #666;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 640px) {
   .wrap {
     margin: 0 auto;
     max-width: 100%;
     border: none;
     border-radius: 0;
-    padding: 15px;
+    padding: 1.5rem;
   }
   header h2 {
-    padding-bottom: 20px;
+    padding-bottom: 2rem;
   }
   header nav ul li a {
-    padding: 10px 15px;
+    padding: 1rem 1.5rem;
     text-align: center;
     font-size: 0.8em;
   }

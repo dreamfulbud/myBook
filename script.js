@@ -25,39 +25,13 @@ const booklist = {
   ]
 }
 let btns = document.querySelectorAll("#tab li button");
-let btn21 = document.querySelector("#year21");
-let btn20 = document.querySelector("#year20");
-let btn19 = document.querySelector("#year19");
-
-
-btns.forEach((ele) => {
-  let eleId = ele.getAttribute('id');
-  ele.querySelector("span").innerHTML = booklist[`${eleId}`].length;
-});
-
-
-// function handleTab() {
-//   // let btnId = this.getAttribute('id');
-//   if (this.classList.contains('on') === false) {
-//     btns.forEach((ele) => {
-
-//     });
-//     this.classList.add('on');
-//   }
-// }
-
-btn21.addEventListener("click", handleTab);
-btn20.addEventListener("click", handleTab);
-btn20.addEventListener("click", handleTab);
-
 
 function handleBooklist(year) {
-  let thisYear = year.getAttribute('id');
-  for (let i = 0; i < booklist[`${thisYear}`].length; i++) {
+  for (let i = 0; i < booklist[`${year}`].length; i++) {
     $.ajax({
       method: "GET", //전송방식
       url: "https://dapi.kakao.com/v3/search/book?target=title", //전송주소 : 데이터를 전달할 URL
-      data: { query: booklist[`${thisYear}`][i] }, //보낼 데이터
+      data: { query: booklist[`${year}`][i] }, //보낼 데이터
       headers: { Authorization: "KakaoAK bd8620685805804f2d018956bc5dc276" }
     })
       .done(function (msg) {
@@ -86,17 +60,27 @@ function handleBooklist(year) {
         </article>
       </li>        
       `);
-
       });
   }
 }
 
-handleBooklist(year21);
+function handleTab() {
+  if (this.classList.contains('on') === false) {
+    let eleId = this.getAttribute('id');
 
-// $('#tab li button').click(function () {
-//   if ($(this).parent("li").hasClass("on") === false) {
-//     $('#tab li').removeClass("on");
-//     $(this).parent("li").addClass("on");
-//     $("#book *").remove();
-//   }
-// });
+    btns.forEach(ele => ele.classList.remove('on'));
+    document.querySelector("#book").innerHTML = "";
+
+    this.classList.add('on');
+    handleBooklist(eleId);
+  }
+}
+
+handleBooklist("year21");
+
+btns.forEach((ele) => {
+  let eleId = ele.getAttribute('id');
+  ele.querySelector("span").innerHTML = booklist[`${eleId}`].length;
+  ele.addEventListener("click", handleTab);
+});
+

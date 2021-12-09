@@ -6,7 +6,7 @@
 
 - 내가 읽은 도서 목록
 - 개인프로젝트 : 100%
-- HTML/CSS/SASS/jQuery/카카오 도서 API 사용
+- HTML / CSS / SASS / JavaScript / jQuery/카카오 도서 API 사용
 - 위니브에서 제공한 실습 과제와 유튜브 조코딩 API 영상을 응용하여 작업하였습니다.
 
 ## 개발하면서 어려웠던 점

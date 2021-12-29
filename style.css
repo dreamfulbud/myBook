@@ -284,14 +284,17 @@ header nav ul li button.on span {
   background: white;
 }
 
+main {
+  padding: 3rem;
+  background-color: #fff;
+}
+
 main ul {
   display: grid;
   grid-template-columns: repeat(4, calc((100% - 2rem*3)/4));
   grid-gap: 2rem;
   box-sizing: border-box;
   border-radius: 1.5rem;
-  padding: 3rem;
-  background-color: #fff;
 }
 
 @media (max-width: 1200px) {
@@ -443,4 +446,21 @@ footer p + p {
     font-size: 0.8em;
     background-color: #fff;
   }
+}
+
+main section {
+  position: relative;
+}
+
+.loading {
+  color: #FDD65F;
+  font-weight: bold;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.loading img {
+  width: 6rem;
+  display: block;
+  margin: 0 auto;
 }

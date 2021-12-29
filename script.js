@@ -25,17 +25,19 @@ const booklist = {
   ]
 }
 let btns = document.querySelectorAll("#tab li button");
-
 function handleBooklist(year) {
-  for (let i = 0; i < booklist[`${year}`].length; i++) {
-    $.ajax({
-      method: "GET", //전송방식
-      url: "https://dapi.kakao.com/v3/search/book?target=title", //전송주소 : 데이터를 전달할 URL
-      data: { query: booklist[`${year}`][i] }, //보낼 데이터
-      headers: { Authorization: "KakaoAK bd8620685805804f2d018956bc5dc276" }
-    })
-      .done(function (msg) {
-        $("#book").append(`
+  setTimeout(function () {
+    for (let i = 0; i < booklist[`${year}`].length; i++) {
+      $.ajax({
+        method: "GET", //전송방식
+        url: "https://dapi.kakao.com/v3/search/book?target=title", //전송주소 : 데이터를 전달할 URL
+        data: { query: booklist[`${year}`][i] }, //보낼 데이터
+        headers: { Authorization: "KakaoAK bd8620685805804f2d018956bc5dc276" },
+        async: false,
+      })
+        .done(function (msg) {
+
+          $("#book").append(`
       <li>
         <article>
           <a class="thumb" href="${msg.documents[0].url}" target="_blank" title="새창">
@@ -60,11 +62,14 @@ function handleBooklist(year) {
         </article>
       </li>        
       `);
-      });
-  }
+        });
+    } //for
+    $('.loading').fadeOut(300);
+  }, 100);
 }
 
 function handleTab() {
+  $('.loading').fadeIn(100);
   if (this.classList.contains('on') === false) {
     let eleId = this.getAttribute('id');
 
@@ -82,5 +87,6 @@ btns.forEach((ele) => {
   let eleId = ele.getAttribute('id');
   ele.querySelector("span").innerHTML = booklist[`${eleId}`].length;
   ele.addEventListener("click", handleTab);
+
 });
 

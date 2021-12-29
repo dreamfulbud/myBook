@@ -307,14 +307,16 @@ header {
 }
 
 main {
+  padding: 3rem;
+  background-color: #fff;
+
   ul {
     display: grid;
     grid-template-columns: repeat(4, calc((100% - 2rem*3)/4));
     grid-gap: 2rem;
     box-sizing: border-box;
     border-radius: 1.5rem;
-    padding: 3rem;
-    background-color: #fff;
+
 
     @media(max-width:1200px) {
       grid-template-columns: repeat(3, calc((100% - 2rem*2)/3));
@@ -474,4 +476,21 @@ footer {
     background-color: #fff;
   }
 
+}
+
+main section {
+  position: relative;
+}
+
+.loading {
+  color: #FDD65F;
+  font-weight: bold;
+  margin: 2rem auto;
+  text-align: center;
+
+  img {
+    width: 6rem;
+    display: block;
+    margin: 0 auto;
+  }
 }

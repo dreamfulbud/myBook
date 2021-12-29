@@ -13,16 +13,12 @@
 ### 폴더구조
 ```
    .
-   ├── css
-   │   ├── reset.css
-   │   ├── scss
-   │   │   └── style.scss
-   │   └── style.css
-   ├── font
-   ├── images
+   ├── img
    ├── index.html
-   └── js
-      └── script.js
+   ├── script.js
+   ├── scss
+   │   └── style.scss
+   └── style.css
 ```
 ## 개발하면서 어려웠던 점
 

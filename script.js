@@ -32,7 +32,7 @@ function handleBooklist(year) {
         method: "GET", //전송방식
         url: "https://dapi.kakao.com/v3/search/book?target=title", //전송주소 : 데이터를 전달할 URL
         data: { query: booklist[`${year}`][i] }, //보낼 데이터
-        headers: { Authorization: config.APP_KEY },
+        headers: { Authorization: "KakaoAK 90e47056ec95327be8bc8044ba3fcd33" },
         async: false,
       })
         .done(function (msg) {
